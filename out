@@ -39,7 +39,8 @@ bodyImages=()
 
 for i in ${$images[@]};
 do
-  image=$images[$i]
+  base64Image = base64 -e $images[$i]
+  image="data:image/png;base64, ${base64Image}"
   $bodyImages+=("{\"image\": \"${image}\" }")
 done
 
